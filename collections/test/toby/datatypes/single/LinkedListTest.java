@@ -1,4 +1,4 @@
-package toby.datatypes.slinkedlist;
+package toby.datatypes.single;
 
 import static org.junit.Assert.*;
 
@@ -6,6 +6,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
+
+import toby.datatypes.single.LinkedList;
+import toby.datatypes.single.Node;
 
 public class LinkedListTest {
 

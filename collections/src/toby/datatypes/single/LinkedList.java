@@ -1,4 +1,4 @@
-package toby.datatypes.slinkedlist;
+package toby.datatypes.single;
 
 public class LinkedList<E> {
     
