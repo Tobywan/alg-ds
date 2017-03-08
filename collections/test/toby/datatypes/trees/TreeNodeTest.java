@@ -1,7 +1,5 @@
 package toby.datatypes.trees;
 
-import static org.junit.Assert.*;
-
 import java.io.File;
 
 import org.junit.Test;
@@ -70,7 +68,7 @@ public class TreeNodeTest {
         {
             TreeNode<File> newNode = new TreeNode<>();
             node.appendChild(newNode);
-            addFile( newNode, child);
+            addFile(newNode, child);
         }
     }
 
