@@ -10,6 +10,7 @@ import org.junit.Test;
 
 public class RobotGridTest {
 
+  public static final LinkedList<Point> EMPTY_LIST = new LinkedList<Point>(); 
   
   @Test
   public void testSimplePath() {
@@ -18,10 +19,11 @@ public class RobotGridTest {
     offLimits.add(new Point(1,0));
     uut.setOffLimits(offLimits.iterator());
        
-    System.out.println(uut.toString());
+    System.out.println(uut.print(EMPTY_LIST));
     LinkedList<Point> result =  uut.findPath();
     System.out.println("\n");
-    System.out.println(uut.toString());
+    System.out.println(uut.print(result));
+    
     System.out.println(result);
    
   }
@@ -35,10 +37,11 @@ public class RobotGridTest {
     offLimits.add(new Point(1,2));
     uut.setOffLimits(offLimits.iterator());
        
-    System.out.println(uut.toString());
+    System.out.println(uut.print(EMPTY_LIST));
     LinkedList<Point> result =  uut.findPath();
     System.out.println("\n");
-    System.out.println(uut.toString());
+    System.out.println(uut.print(result));
+    
     System.out.println(result);
    
   }
@@ -51,12 +54,14 @@ public class RobotGridTest {
     offLimits.add(new Point(0,1));
     offLimits.add(new Point(1,0));
     uut.setOffLimits(offLimits.iterator());
-    System.out.println(uut.toString());
+  
+    System.out.println(uut.print(EMPTY_LIST));
     LinkedList<Point> result =  uut.findPath();
     System.out.println("\n");
-    System.out.println(uut.toString());
+    System.out.println(uut.print(result));
+    
     System.out.println(result);
-   
+  
   }
 
   @Test
@@ -75,10 +80,11 @@ public class RobotGridTest {
     offLimits.add(new Point(1,8));
     uut.setOffLimits(offLimits.iterator());
     
-    System.out.println(uut.toString());
+    System.out.println(uut.print(EMPTY_LIST));
     LinkedList<Point> result =  uut.findPath();
     System.out.println("\n");
-    System.out.println(uut.toString());
+    System.out.println(uut.print(result));
+    
     System.out.println(result);
    
   }
@@ -87,10 +93,11 @@ public class RobotGridTest {
   public void testRowPath() {
     RobotGrid uut = new RobotGrid(1,10);
     
-    System.out.println(uut.toString());
+    System.out.println(uut.print(EMPTY_LIST));
     LinkedList<Point> result =  uut.findPath();
     System.out.println("\n");
-    System.out.println(uut.toString());
+    System.out.println(uut.print(result));
+    
     System.out.println(result);
    
   }
@@ -99,10 +106,33 @@ public class RobotGridTest {
   public void testColPath() {
     RobotGrid uut = new RobotGrid(10,1);
     
-    System.out.println(uut.toString());
+    System.out.println(uut.print(EMPTY_LIST));
     LinkedList<Point> result =  uut.findPath();
     System.out.println("\n");
-    System.out.println(uut.toString());
+    System.out.println(uut.print(result));
+    
+    System.out.println(result);
+   
+  }
+
+  @Test
+  public void testRandomObstructions() {
+    RobotGrid uut = new RobotGrid(30,30);
+
+    ArrayList<Point> offLimits = new ArrayList<>();
+
+    for (int i = 0; i < 200; i++) {
+      int x = (int)(Math.random() * 31);
+      int y = (int)(Math.random() * 31);
+      offLimits.add(new Point(x,y));
+      
+    }
+    uut.setOffLimits(offLimits.iterator());
+    System.out.println(uut.print(EMPTY_LIST));
+    LinkedList<Point> result =  uut.findPath();
+    System.out.println("\n");
+    System.out.println(uut.print(result));
+    
     System.out.println(result);
    
   }

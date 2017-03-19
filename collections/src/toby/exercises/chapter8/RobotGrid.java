@@ -53,7 +53,7 @@ public class RobotGrid {
 
   public void findPath(Point p, LinkedList<Point> path) {
 
-    System.out.println("Trying " + p.toString());
+//    System.out.println("Trying " + p.toString());
     // short circuit
     if (destination.equals(path.peekLast())) {
       return; // Already found a way through, no need to check any more
@@ -99,19 +99,24 @@ public class RobotGrid {
       // else
       // fail
       grid[p.x][p.y] = false;
-      System.out.println("Removing " +  path.peekLast());
+//      System.out.println("Removing " +  path.peekLast());
       path.removeLast();
       return;
     }
 
   }
 
-  @Override
-  public String toString() {
+  public String print(LinkedList<Point> path) {
     StringBuilder sb = new StringBuilder();
     for (int y = 0; y < grid[0].length - 1; y++) {
       for (int x = 0; x < grid.length - 1; x++) {
-        sb.append(grid[x][y] ? "O" : "X");
+        
+        if (path.contains(new Point(x,y)))
+        {
+          sb.append('+');  
+        } else {
+          sb.append(grid[x][y] ? "." : "X");
+        }
       }
       sb.append("\n");
     }
