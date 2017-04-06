@@ -5,9 +5,14 @@ import java.util.List;
 
 public class TreeNode<E> {
 
-    private List<TreeNode<E>> children;
+    private List<TreeNode<E>> children = new ArrayList<>();;
     private E data;
-    
+
+    public TreeNode() {
+    }
+    public TreeNode(E data) {
+      this.data = data;
+    }
     /**
      * returns null if no children
      */
@@ -26,11 +31,6 @@ public class TreeNode<E> {
 
     public void appendChild(TreeNode<E> child) {
     
-        if (children == null)
-        {
-            children = new ArrayList<>();
-        }
-        
         children.add(child);
         //System.out.println("Adding " + child);
         
